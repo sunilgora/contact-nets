@@ -312,7 +312,7 @@ def generate_figure(regenerate_data):
     plt.ylabel(r"Next Position $z'$")
     plt.xlabel(r"Initial Velocity $\dot z$")
     plt.title(r" ")
-    ax1.text(4.05, -0.07, r'(below ground)', fontsize=12)
+    ax1.text(4.05, GH-0.07, r'(below ground)', fontsize=12)
     plt.gca().set_xlim(torch.min(v0_plot), torch.max(v0_plot))
     plt.gca().set_ylim(YMIN, torch.max(qf) + 0.1)
 
