@@ -72,7 +72,7 @@ def generate_figure(regenerate_data):
             else:
                 return nominalModel(data, self.gh)
 
-    modelGH = GroundHeightQP(torch.randn(1)[0] * 0.3)
+    modelGH = GroundHeightQP(GH + torch.randn(1)[0] * 0.3)
 
 
     MSELOSS = torch.nn.MSELoss(reduction='mean')
@@ -294,8 +294,8 @@ def generate_figure(regenerate_data):
     fig = plt.figure(1)
     fig.suptitle("1D System Predictions")
     ax1 = plt.subplot(121)
-    YMIN = -0.3
-    ax1.fill_between(v0_plot.squeeze(), 0 * v0_plot.squeeze() + YMIN,
+    YMIN = GH-0.3
+    ax1.fill_between(v0_plot.squeeze(), 0 * v0_plot.squeeze() + YMIN, 0 * v0_plot.squeeze() + GH,
                      color=PENNLGRAY2, label='_nolegend_')
     plt.plot(v0_plot.numpy(), qfD.numpy(), linewidth=LINEWIDTH, color=PENNYELLOW)
 
